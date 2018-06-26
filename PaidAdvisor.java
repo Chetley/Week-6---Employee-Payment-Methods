@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class PaidAdvisor extends Person {
 
-		final float regularPayRate = 25;
-		final float specialPayRate = 50;
-		final int regular_weekly_hours = 30;
-		double overtimePayRate = (1.5 * regularPayRate);
+		private final float regularPayRate = 25;
+		private final float specialPayRate = 50;
+		private final int regular_weekly_hours = 30;
+		private double overtimePayRate = (1.5 * regularPayRate);
 		
-		double hoursWorked;
-		double overtime_hours_worked;
-		double special_session_overage;	//if an employee works more than 30 hours but not all hours worked are special session
-		double RegularPayOut;
-		double SpecialSessionPayout;
-		double OvertimePayout;
-		int specialSession;
-		double hoursSpecial;
+		private double hoursWorked;
+		private double overtime_hours_worked;
+		private double special_session_overage;	//if an employee works more than 30 hours but not all hours worked are special session
+		private double RegularPayOut;
+		private double SpecialSessionPayout;
+		private double OvertimePayout;
+		private int specialSession;
+		private double hoursSpecial;
 //		double overtime_rate_after_special;
-		double just_overtime;
-		double Overtime_with_special;
+		private double just_overtime;
+		private double Overtime_with_special;
 
 		public PaidAdvisor(double p_hoursWorked)
 		{
@@ -103,7 +103,11 @@ public class PaidAdvisor extends Person {
 		public void set_SpecialSessionPayout()
 		{
 		if (hoursWorked > 30 && specialSession == 1)
-			SpecialSessionPayout = (((hoursWorked - hoursSpecial) * regularPayRate) + (hoursSpecial * specialPayRate));
+		{
+			SpecialSessionPayout = (((hoursWorked - hoursSpecial) 
+					                * regularPayRate) + 
+					                 (hoursSpecial * specialPayRate));
+		}
 		}
 		public double get_SpecialSessionPayout()
 		{
